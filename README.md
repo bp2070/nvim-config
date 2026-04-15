@@ -11,10 +11,14 @@ A lean Neovim configuration using vim.pack and keeping the plugin count to a min
 - command line: tiny-cmdline
 - shortcut help: whichkey
 - code actions: tiny-code-action
+- git: gitsigns
+- flash
 
 ## Todo
-- flash
-- git
 - sessions
 - update nvim-treesiter/nvim-treesitter to neovim-treesitter/nvim-treesitter
 - replace nvim-lspconfig (?)
+- bufferline?
+- harpoon?
+- oil/yazi/other file manager
+- better esc handling for suggestions
