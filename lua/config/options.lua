@@ -1,5 +1,11 @@
+vim.cmd.colorscheme "catppuccin"
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
+-- if vim.loop.os_uname().sysname == "Windows_NT" then
+--   vim.o.shell = "pwsh"
+-- end
 
 local opt = vim.opt
 

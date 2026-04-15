@@ -1,4 +1,6 @@
 local map = vim.keymap.set
+-- Add empty lines before and after cursor line
+map("n", "<CR>", "o<Esc>")
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
