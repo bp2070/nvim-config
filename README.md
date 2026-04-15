@@ -22,3 +22,10 @@ A lean Neovim configuration using vim.pack and keeping the plugin count to a min
 - harpoon?
 - oil/yazi/other file manager
 - better esc handling for suggestions
+- toggleterm
+- keymaps for vim.pack to manage plugins (list, remove, etc)
+- replace snacks with telescope or fzf?
+- add ';' keymap
+- better markdown support
+  - highlight, better wrapping, tables, follow links
+- show file path somewhere (lualine?)
