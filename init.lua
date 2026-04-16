@@ -21,6 +21,8 @@ vim.pack.add({
   "https://github.com/lewis6991/gitsigns.nvim",
 }, { confirm = false })
 
+require("nvim-autopairs").setup()
+require("todo-comments").setup()
 
 require("config")
 require("vim._core.ui2").enable({})
