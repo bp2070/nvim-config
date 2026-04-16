@@ -13,6 +13,12 @@ require('dashboard').setup {
         key = 'f',
       },
       {
+        desc = 'Lazygit',
+        group = 'Label',
+        action = 'lua LazygitToggle()',
+        key = 'g',
+      },
+      {
         desc = 'Restore Session',
         group = 'DiagnosticHint',
         action = 'lua require("persistence").load()',

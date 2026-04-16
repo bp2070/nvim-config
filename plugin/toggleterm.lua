@@ -1,14 +1,14 @@
 require("toggleterm").setup()
 
-local Terminal  = require('toggleterm.terminal').Terminal
+local Terminal = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
   cmd = "lazygit",
   hidden = true,
   direction = "float",
 })
 
-local lazygit_toggle = function()
+function LazygitToggle ()
   lazygit:toggle()
 end
 
-vim.keymap.set("n", "<leader>gg", lazygit_toggle, { desc = "Lazygit" })
+vim.keymap.set("n", "<leader>gg", LazygitToggle, { desc = "Lazygit" })
