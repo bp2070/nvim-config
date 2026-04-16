@@ -1,5 +1,3 @@
-vim.pack.add({ "https://github.com/saghen/blink.cmp" }, { confirm = false })
-
 require("blink.cmp").setup({
   completion = {
     documentation = {

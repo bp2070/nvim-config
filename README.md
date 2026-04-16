@@ -2,6 +2,7 @@
 
 A lean Neovim configuration using vim.pack and keeping the plugin count to a minimum
 
+```lua
 ## Key features
 - plugin management: vim.pack
 - picker: snacks
@@ -13,19 +14,17 @@ A lean Neovim configuration using vim.pack and keeping the plugin count to a min
 - code actions: tiny-code-action
 - git: gitsigns
 - flash
+- sessions: persistence.nvim
+- dashboard: dashboard-nvim
 
 ## Todo
-- sessions
-- update nvim-treesiter/nvim-treesitter to neovim-treesitter/nvim-treesitter
-- replace nvim-lspconfig (?)
-- bufferline?
-- harpoon?
-- oil/yazi/other file manager
-- better esc handling for suggestions
+- better buffer switching (bufferline/harpoon/etc)
 - toggleterm
-- keymaps for vim.pack to manage plugins (list, remove, etc)
-- replace snacks with telescope or fzf?
-- add ';' keymap
+- better esc handling for suggestions
+- oil/yazi/other file manager
 - better markdown support
   - highlight, better wrapping, tables, follow links
-- show file path somewhere (lualine?)
+- update nvim-treesiter/nvim-treesitter to neovim-treesitter/nvim-treesitter
+- replace nvim-lspconfig (?)
+- keymaps for vim.pack to manage plugins (list, remove, etc)
+- replace snacks with telescope or fzf?

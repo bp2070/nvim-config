@@ -1,8 +1,3 @@
-vim.pack.add({
-	"https://github.com/folke/snacks.nvim",
-	"https://github.com/nvim-tree/nvim-web-devicons",
-})
-
 local Snacks = require("snacks")
 
 Snacks.setup({
@@ -121,6 +116,25 @@ Snacks.setup({
 		},
 	},
 })
+local find_packages = function()
+  Snacks.picker({
+    title = "Installed Packages",
+    items = vim.iter(vim.pack.get())
+      :map(function(x, i)
+        return { idx = i, text = x.spec.name, spec = x.spec }
+      end)
+      :totable(),
+    format = function(item)
+      return { { item.text } }
+    end,
+    layout = { preset = "default", preview = false },
+    confirm = function(picker, item)
+      picker:close()
+      vim.fn.setreg("+", item.text)
+      Snacks.notify("Copied '" .. item.text .. "' to clipboard")
+    end,
+  })
+end
 
 vim.api.nvim_create_autocmd("User", {
 	pattern = "VeryLazy",
@@ -180,6 +194,7 @@ local   keymaps = {
     { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
     { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
+    { "<leader>fa", find_packages, desc = "Find Packages" },
     -- git
     { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
     { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
