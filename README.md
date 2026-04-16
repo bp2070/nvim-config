@@ -12,14 +12,14 @@ A lean Neovim configuration using vim.pack and keeping the plugin count to a min
 - command line: tiny-cmdline
 - shortcut help: whichkey
 - code actions: tiny-code-action
-- git: gitsigns
+- git: lazygit + gitsigns
 - flash
 - sessions: persistence.nvim
 - dashboard: dashboard-nvim
 
 ## Todo
 - better buffer switching (bufferline/harpoon/etc)
-- toggleterm
+- configure toggleterm
 - better esc handling for suggestions
 - oil/yazi/other file manager
 - better markdown support
@@ -28,3 +28,5 @@ A lean Neovim configuration using vim.pack and keeping the plugin count to a min
 - replace nvim-lspconfig (?)
 - keymaps for vim.pack to manage plugins (list, remove, etc)
 - replace snacks with telescope or fzf?
+- remove mason-tool-installer?
+- configure blink
