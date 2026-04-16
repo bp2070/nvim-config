@@ -30,3 +30,4 @@ A lean Neovim configuration using vim.pack and keeping the plugin count to a min
 - replace snacks with telescope or fzf?
 - remove mason-tool-installer?
 - configure blink
+- set wrap for markdown files

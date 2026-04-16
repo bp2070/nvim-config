@@ -16,7 +16,7 @@ require('dashboard').setup {
         desc = 'Lazygit',
         group = 'Label',
         action = 'lua LazygitToggle()',
-        key = 'g',
+        key = 'l',
       },
       {
         desc = 'Restore Session',
