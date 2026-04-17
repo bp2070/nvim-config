@@ -20,13 +20,13 @@ require('dashboard').setup {
       },
       {
         desc = 'Restore Session',
-        group = 'DiagnosticHint',
+        group = 'Label',
         action = 'lua require("persistence").load()',
         key = 's',
       },
       {
         desc = 'Quit',
-        group = 'Label',
+        group = 'Constant',
         action = 'q',
         key = 'q',
       },

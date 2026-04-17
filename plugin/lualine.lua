@@ -1,14 +1,15 @@
+local gruv = require('lualine.themes.gruvbox-material')
+gruv.normal.c.bg = 'none'
+
 require("lualine").setup({
   options = {
-    section_separators = { left = "", right = "", },
-    component_separators = { left = "", right = "", },
+    theme = gruv,
   },
   sections = {
     lualine_c = {
       {
         'filename',
         path = 1,
-        shorting_target = 10,
       }
     },
   },
