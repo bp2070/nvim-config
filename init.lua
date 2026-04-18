@@ -1,4 +1,5 @@
 vim.pack.add({
+  { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 	"https://github.com/nvim-tree/nvim-web-devicons",
   "https://github.com/folke/persistence.nvim",
   "https://github.com/rachartier/tiny-cmdline.nvim",
@@ -20,6 +21,18 @@ vim.pack.add({
   "https://github.com/folke/todo-comments.nvim", -- highlight TODO/INFO/WARN comments
   "https://github.com/lewis6991/gitsigns.nvim",
 }, { confirm = false })
+
+require("catppuccin").setup {
+  custom_highlights = function(colors)
+      return {
+        Normal = { bg = "#214166" },
+        CursorLine = { bg = "#264a6a" },
+        LineNr = { fg = colors.surface2 },
+        GitSignsCurrentLineBlame = { fg = colors.subtext0 },
+      }
+  end
+}
+vim.cmd.colorscheme "catppuccin-mocha"
 
 require("nvim-autopairs").setup()
 require("todo-comments").setup()
