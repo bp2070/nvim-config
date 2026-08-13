@@ -31,11 +31,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-local lspconfig = require("lspconfig")
-
--- Configure each LSP server using the standard lspconfig setup
+-- Configure each LSP server using Neovim 0.11+ vim.lsp.config
 for server, config in pairs(lsp_servers) do
-	lspconfig[server].setup({
+	vim.lsp.config[server] = {
 		settings = config,
-	})
+	}
+	vim.lsp.enable(server)
 end
