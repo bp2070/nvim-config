@@ -2,7 +2,6 @@
 
 A lean Neovim configuration using vim.pack and keeping the plugin count to a minimum
 
-```lua
 ## Key features
 - plugin management: vim.pack
 - picker: snacks
@@ -18,6 +17,8 @@ A lean Neovim configuration using vim.pack and keeping the plugin count to a min
 - dashboard: dashboard-nvim
 
 ## Todo
+- 'outline' view (specifically for markdown navigation)
+- bufferline takes awhile to start
 - better buffer switching (bufferline/harpoon/etc)
 - configure toggleterm
 - better esc handling for suggestions
