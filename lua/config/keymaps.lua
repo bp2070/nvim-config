@@ -30,14 +30,6 @@ map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
--- code
-map("n", "<leader>cd", vim.lsp.buf.definition, { desc = "Go to definition" })
-map("n", "<leader>cD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
-map("n", "<leader>ci", vim.lsp.buf.implementation, { desc = "Find Implementations" })
-map("n", "<leader>cr", vim.lsp.buf.references, { desc = "Find References" })
-map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format File" })
-
 -- mini.files
 -- Open the directory of the file currently being edited
 -- If the file doesn't exist because you maybe switched to a new git branch
@@ -92,12 +84,12 @@ map("i", ";", ";<c-g>u")
 -- save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
--- messages
-map("n", "<leader>m", "<cmd>messages<cr>", { desc = "Show Messages" })
-
 --keywordprg
 map("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
 
 -- better indenting
 map("x", "<", "<gv")
 map("x", ">", ">gv")
+
+-- messages
+map("n", "<leader>m", "<cmd>messages<cr>", { desc = "Show Messages" })
