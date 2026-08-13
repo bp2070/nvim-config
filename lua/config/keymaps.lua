@@ -1,28 +1,28 @@
 local map = vim.keymap.set
--- Add empty lines before and after cursor line
-map("n", "<CR>", "o<Esc>")
 
-map("n", ";", ":")
+-- General Utilities
+map("n", "<CR>", "o<Esc>", { desc = "Insert Empty Line Below" })
+map("n", ";", ":", { desc = "Enter Command Mode" })
 
--- better up/down
+-- Better Navigation (Up/Down)
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
--- Move to window using the <ctrl> hjkl keys
+-- Move to Window using Ctrl + HJkl
 map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
--- Resize window using <ctrl> arrow keys
-map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
-map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
-map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+-- Resize Window using Ctrl + Arrows
+map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height", silent = true })
+map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height", silent = true })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width", silent = true })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width", silent = true })
 
--- buffers
+-- Buffer Management
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
@@ -65,10 +65,11 @@ map(
   "n",
   "<leader>ur",
   "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-  { desc = "Redraw / Clear hlsearch / Diff Update" }
+  { desc = "Redraw / Clear Highlight / Diff Update", silent = true }
 )
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+-- Saner Next/Prev Search Navigation
 map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
 map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
 map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
@@ -83,13 +84,12 @@ map("i", ";", ";<c-g>u")
 
 -- save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+map("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keyword Lookup (help/man)", silent = true })
 
---keywordprg
-map("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
+-- Better Visual Mode Indenting
+map("x", "<", "<gv", { desc = "Indent Left (Keep Selection)" })
+map("x", ">", ">gv", { desc = "Indent Right (Keep Selection)" })
 
--- better indenting
-map("x", "<", "<gv")
-map("x", ">", ">gv")
 
 -- messages
 map("n", "<leader>m", "<cmd>messages<cr>", { desc = "Show Messages" })
