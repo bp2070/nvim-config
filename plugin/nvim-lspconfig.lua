@@ -14,28 +14,28 @@ local lsp_servers = {
 }
 
 require("mason").setup()
-require("mason-lspconfig").setup()
-require("mason-tool-installer").setup({
-  ensure_installed = vim.tbl_keys(lsp_servers),
+require("mason-lspconfig").setup({
+	ensure_installed = vim.tbl_keys(lsp_servers),
 })
 
--- configure each lsp server on the table
--- to check what clients are attached to the current buffer, use
--- `:checkhealth vim.lsp`. to view default lsp keybindings, use `:h lsp-defaults`.
+-- Create a global LSP autocommand to bind buffer-local keymaps only when an LSP attaches
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		local bufnr = ev.buf
+		local opts = { buffer = bufnr, silent = true }
+
+		-- Buffer-local keymaps (only active when LSP is running in this buffer)
+		vim.keymap.set("n", "grd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Go to Definition" }))
+		vim.keymap.set("n", "grf", vim.lsp.buf.format, vim.tbl_extend("force", opts, { desc = "Format Buffer" }))
+	end,
+})
+
+local lspconfig = require("lspconfig")
+
+-- Configure each LSP server using the standard lspconfig setup
 for server, config in pairs(lsp_servers) do
-	vim.lsp.config(server, {
+	lspconfig[server].setup({
 		settings = config,
-
-		-- only create the keymaps if the server attaches successfully
-		on_attach = function(_, bufnr)
-			vim.keymap.set("n", "grd", vim.lsp.buf.definition,
-				{ buffer = bufnr, desc = "vim.lsp.buf.definition()", })
-
-			vim.keymap.set("n", "grf", vim.lsp.buf.format,
-				{ buffer = bufnr, desc = "vim.lsp.buf.format()", })
-		end,
 	})
-
-	-- enable filetype-based autostart for this server
-	vim.lsp.enable(server)
 end
