@@ -26,13 +26,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = bufnr, silent = true }
 
 		-- Native-like keymaps (only active when LSP is running in this buffer)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "LSP: Go to Definition" }))
 		vim.keymap.set("n", "grd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "LSP: Go to Definition" }))
 		vim.keymap.set("n", "grf", vim.lsp.buf.format, vim.tbl_extend("force", opts, { desc = "LSP: Format Buffer" }))
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "LSP: Find References" }))
+		vim.keymap.set("n", "gI", vim.lsp.buf.implementation, vim.tbl_extend("force", opts, { desc = "LSP: Find Implementations" }))
+		vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, vim.tbl_extend("force", opts, { desc = "LSP: Go to Type Definition" }))
 
 		-- Buffer-local leader mappings (safer version of your global mappings)
 		vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "LSP: Go to Definition" }))
 		vim.keymap.set("n", "<leader>cD", vim.lsp.buf.declaration, vim.tbl_extend("force", opts, { desc = "LSP: Go to Declaration" }))
-		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "LSP: Code Actions" }))
+		vim.keymap.set("n", "<leader>cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "LSP: Rename Symbol" }))
 		vim.keymap.set("n", "<leader>ci", vim.lsp.buf.implementation, vim.tbl_extend("force", opts, { desc = "LSP: Find Implementations" }))
 		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "LSP: Find References" }))
 		vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, vim.tbl_extend("force", opts, { desc = "LSP: Format Buffer" }))
