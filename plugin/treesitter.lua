@@ -1,6 +1,3 @@
--- equivalent to :TSUpdate
-require("nvim-treesitter.install").update("all")
-
 require("nvim-treesitter.config").setup({
   sync_install = true,
 

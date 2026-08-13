@@ -35,10 +35,10 @@ vim.diagnostic.config({
 	-- keep signs & virtual text, but tune them as you like
 	signs = {
 		text = {
-			[sev.ERROR] = " ",
+			[sev.ERROR] = " ",
 			[sev.WARN] = " ",
 			[sev.INFO] = " ",
-			[sev.HINT] = "󰌵 ",
+			[sev.HINT] = " ",
 		},
 	},
 	virtual_text = {
@@ -59,7 +59,9 @@ local diagnostic_goto = function(next, severity)
 		vim.diagnostic.jump({ count = next and 1 or -1, float = true, severity = severity })
 	end
 end
-map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+
+map("n", "<leader>cx", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+
 map("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
 map("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
 map("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })

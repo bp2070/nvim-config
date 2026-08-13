@@ -6,8 +6,13 @@ function _G.set_terminal_keymaps()
   local opts = {buffer = 0}
   vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
 end
--- Apply these mappings only when a terminal is open
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "term://*",
+  callback = function()
+    set_terminal_keymaps()
+  end,
+})
 
 local Terminal = require('toggleterm.terminal').Terminal
 
