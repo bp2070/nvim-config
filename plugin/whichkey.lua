@@ -13,4 +13,9 @@ wk.add({
 	{ "<leader>s", group = "Search" },
 	{ "<leader>u", group = "UI / Toggles" },
 	{ "<leader>w", group = "Window" },
+	{ "<leader>m", desc = "Show System Messages", icon = { icon = "\u{f075} ", color = "yellow" } },
+	{ "<leader>K", desc = "Keyword Lookup (help/man)", icon = { icon = "\u{f02d} ", color = "green" } },
+	{ "<leader>N", desc = "Neovim News", icon = { icon = "\u{f1ea} ", color = "purple" } },
+	{ "<leader>/", desc = "Grep", icon = { icon = "\u{f002} ", color = "cyan" } },
+	{ "<leader>:", desc = "Command History", icon = { icon = "\u{f120} ", color = "azure" } },
 })
