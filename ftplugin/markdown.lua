@@ -7,4 +7,7 @@ require('render-markdown').setup({
   render = {
     diff = true,
   },
+  pipe_table = {
+    wrap = true,
+  },
 })

@@ -54,11 +54,12 @@ Snacks.setup({
 					"**/public/*",
 					"**/digest*.txt",
 					"**/.node-gyp/**",
+					"pnpm-lock.yaml",
 				},
 			},
 			grep = {
 				hidden = true,
-				ignored = true,
+				ignored = false,
 				win = {
 					input = {
 						keys = {
@@ -88,12 +89,13 @@ Snacks.setup({
 					"**/public/*",
 					"**/digest*.txt",
 					"**/.node-gyp/**",
+					"pnpm-lock.yaml",
 				},
 			},
 			grep_buffers = {},
 			explorer = {
 				hidden = true,
-				ignored = true,
+				ignored = false,
 				supports_live = true,
 				auto_close = true,
 				diagnostics = true,
